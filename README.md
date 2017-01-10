@@ -1,7 +1,6 @@
-# Bihu Api
+# Bihu API
 
-**Two versions:**
+在朱大的逼乎api的基础上改的，换成了PDO，加了点防注入。
 
-- [Jude95](https://github.com/Jude95/know_web/blob/master/5.x/)
-
-- [Pinkd](https://github.com/Jude95/know_web/blob/master/7.x/)
+### [API](api.md)
+### [数据库结构](bihu.sql)
