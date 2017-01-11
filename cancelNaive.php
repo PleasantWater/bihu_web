@@ -14,12 +14,12 @@ $naive = null;
 
 switch ($type) {
     case $TYPE_ANSWER:
-        $sql = $pdo->prepare("INSERT INTO naive_answer (`uid`, `aid` ) VALUES ( ?, ?)");
-        $naive = $pdo->prepare("UPDATE answer SET naive = naive + 1");
+        $sql = $pdo->prepare("DELETE FROM naive_answer WHERE `uid` = ? AND `aid` = ?");
+        $naive = $pdo->prepare("UPDATE question SET naive = naive - 1");
         break;
     case $TYPE_QUESTION:
-        $sql = $pdo->prepare("INSERT INTO naive_question (`uid`, `qid` ) VALUES ( ?, ?)");
-        $naive = $pdo->prepare("UPDATE question SET naive = naive + 1");
+        $sql = $pdo->prepare("DELETE FROM naive_question WHERE `uid` = ? AND `qid` = ?");
+        $naive = $pdo->prepare("UPDATE question SET naive = naive - 1");
         break;
     default:
         other_encode(400, "Too young!");

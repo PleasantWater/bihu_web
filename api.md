@@ -217,7 +217,7 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 9.采纳
+### 8.采纳
 
 地址：https://api.caoyue.com.cn/bihu/accept.php    
 参数：
@@ -235,7 +235,7 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 9.点赞
+### 9.![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png)
 
 地址：https://api.caoyue.com.cn/bihu/exciting.php    
 参数：
@@ -253,7 +253,61 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 10.上传图片
+### 10. ![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/-1.png)
+
+地址：https://api.caoyue.com.cn/bihu/naive.php    
+参数：
+
+>id:  
+>type: ANSWER -> 2, QUESTION -> 1  
+>token
+
+返回:：
+
+```json
+{
+  "status": 200,
+  "info": "naive"
+}
+```
+
+### 11.取消![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png)
+
+地址：https://api.caoyue.com.cn/bihu/cancelExciting.php    
+参数：
+
+>id:  
+>type: ANSWER -> 2, QUESTION -> 1  
+>token
+
+返回:：
+
+```json
+{
+  "status": 200,
+  "info": "excited"
+}
+```
+
+### 12.取消![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/-1.png)
+
+地址：https://api.caoyue.com.cn/bihu/cancelNaive.php    
+参数：
+
+>id:  
+>type: ANSWER -> 2, QUESTION -> 1  
+>token
+
+返回:：
+
+```json
+{
+  "status": 200,
+  "info": "naive"
+}
+```
+
+### 13.上传图片
 
 地址：https://api.caoyue.com.cn/bihu/newImage.php    
 参数：
@@ -271,7 +325,7 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 11.获取图片
+### 14.获取图片
 
 地址：https://api.caoyue.com.cn/bihu/getImage.php    
 参数：
