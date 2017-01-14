@@ -111,6 +111,7 @@
         "answerCount": 0,
         "uid": 1,
         "exciting": 2,
+        "naive": 0,
         "authorName": "admin",
         "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460"
       },
@@ -123,6 +124,7 @@
         "answerCount": 0,
         "uid": 1,
         "exciting": 0,
+        "naive": 0,
         "authorName": "admin",
         "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460"
       },
@@ -135,6 +137,7 @@
         "answerCount": 0,
         "uid": 1,
         "exciting": 0,
+        "naive": 0,
         "authorName": "admin",
         "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460"
       }
@@ -170,6 +173,7 @@ recent表示最近回复时间，没有回复时为null。
         "content": "早啊，单身狗",
         "date": "2016-12-15 12:17:10",
         "exciting": 0,
+        "naive": 0,
         "best": 1,
         "authorId": 2,
         "authorName": "test",
@@ -217,7 +221,52 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 8.采纳
+### 8.收藏
+
+地址：https://api.caoyue.com.cn/bihu/favorite.php    
+参数：
+
+>qid:  
+>token
+
+返回:：
+
+```json
+{
+  "status": 200,
+  "info": "success"
+}
+```
+
+### 9.取消收藏
+
+地址：https://api.caoyue.com.cn/bihu/cancelFavorite.php    
+参数：
+
+>qid:  
+>token
+
+返回:：
+
+```json
+{
+  "status": 200,
+  "info": "success"
+}
+```
+
+### 10.收藏列表
+
+地址：https://api.caoyue.com.cn/bihu/getFavoriteList.php    
+参数：
+
+>token
+>page:   
+>count:可空，每页条数，默认20条
+
+返回参考前面问题列表
+
+### 11.采纳
 
 地址：https://api.caoyue.com.cn/bihu/accept.php    
 参数：
@@ -235,7 +284,7 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 9.![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png)
+### 12.![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png)
 
 地址：https://api.caoyue.com.cn/bihu/exciting.php    
 参数：
@@ -253,7 +302,7 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 10. ![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/-1.png)
+### 13. ![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/-1.png)
 
 地址：https://api.caoyue.com.cn/bihu/naive.php    
 参数：
@@ -271,7 +320,7 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 11.取消![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png)
+### 14.取消![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png)
 
 地址：https://api.caoyue.com.cn/bihu/cancelExciting.php    
 参数：
@@ -289,7 +338,7 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 12.取消![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/-1.png)
+### 15.取消![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/-1.png)
 
 地址：https://api.caoyue.com.cn/bihu/cancelNaive.php    
 参数：
@@ -307,7 +356,7 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 13.上传图片
+### 16.上传图片
 
 地址：https://api.caoyue.com.cn/bihu/newImage.php    
 参数：
@@ -325,7 +374,7 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 14.获取图片
+### 17.获取图片
 
 地址：https://api.caoyue.com.cn/bihu/getImage.php    
 参数：
