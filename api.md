@@ -84,6 +84,28 @@
 }
 ```
 
+### 4. 修改密码
+
+地址：https://api.caoyue.com.cn/bihu/changePassword.php    
+参数
+
+>token:  
+>password:
+
+传用户头像地址。本API不负责图片文件储存，图片储存请右转[阿里](https://help.aliyun.com/product/31815.html)，[七牛](http://developer.qiniu.com/article/index.html#kodo-api-handbook)，然后把图片地址传上来。
+
+返回:    
+
+```json
+{
+  "status": 200,
+  "info": "success",
+  "data": {
+    "token": "xxx"
+  }
+}
+```
+
 ### 4. 取问题列表
 
 地址：https://api.caoyue.com.cn/bihu/getQuestionList.php
