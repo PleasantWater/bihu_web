@@ -21,7 +21,7 @@ $sql = $pdo->prepare("
       question.naive,
       question.recent,
       question.answerCount,
-      question.uid    AS autherId,
+      question.uid    AS authorId,
       person.username AS authorName,
       person.avatar   AS authorAvatar
     FROM person
