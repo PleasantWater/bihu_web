@@ -8,15 +8,16 @@ $uid = checkToken($pdo, $token);
 $aid = (int)$_POST["aid"];
 $qid = (int)$_POST["qid"];
 
-$sql = $pdo->prepare("SELECT * FROM question WHERE `id` = ? AND `uid` = ?");
+$query = $pdo->prepare("SELECT * FROM question WHERE `id` = ? AND `uid` = ?");
 
-if ($sql->execute(array($qid, $uid))) {
-    $sql = $pdo->prepare("UPDATE answer SET `best` = TRUE WHERE `qid` = ? AND `id` = ?");
-    if ($sql->execute(array($qid, $aid))) {
-        success_encode();
+if ($query->execute(array($qid, $uid))) {
+    if ($query->fetchAll(PDO::FETCH_NAMED)) {
+        $query = $pdo->prepare("UPDATE answer SET `best` = TRUE WHERE `qid` = ? AND `id` = ?");
+        if ($query->execute(array($qid, $aid))) {
+            success_encode();
+        }
     } else {
-        other_encode(500, "采纳失败");
+        other_encode(404, "未找到对应回答");
     }
-} else {
-    other_encode(404, "未找到对应回答");
 }
+other_encode(500, "采纳失败");

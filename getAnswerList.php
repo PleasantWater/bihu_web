@@ -35,6 +35,11 @@ $data = null;
 foreach ($sql->fetchAll(PDO::FETCH_NAMED) as $row) {
     $data[] = $row;
 }
+foreach ($data as $e) {
+    $sql = $pdo->prepare("SELECT `url` FROM image WHERE `aid` = ? AND `uid` = ?");
+    $sql->execute(array($e["id"], $e["authorId"]));
+    $e["images"] = $sql->fetchAll(PDO::FETCH_NAMED);
+}
 $sql = $pdo->prepare("SELECT COUNT(*) AS count FROM answer WHERE qid = ?");
 $sql->execute(array($qid));
 $totalCount = $sql->fetch(PDO::FETCH_NAMED);
