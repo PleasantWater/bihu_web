@@ -15,11 +15,11 @@ $naive = null;
 switch ($type) {
     case $TYPE_ANSWER:
         $sql = $pdo->prepare("INSERT INTO naive_answer (`uid`, `aid` ) VALUES ( ?, ?)");
-        $naive = $pdo->prepare("UPDATE answer SET naive = naive + 1 WHERE id = ?");
+        $naive = $pdo->prepare("UPDATE answer SET `naive` = `naive` + 1 WHERE `id` = ?");
         break;
     case $TYPE_QUESTION:
         $sql = $pdo->prepare("INSERT INTO naive_question (`uid`, `qid` ) VALUES ( ?, ?)");
-        $naive = $pdo->prepare("UPDATE question SET naive = naive + 1 WHERE id = ?");
+        $naive = $pdo->prepare("UPDATE question SET `naive` = `naive` + 1 WHERE `id` = ?");
         break;
     default:
         other_encode(400, "Too young!");
@@ -27,7 +27,7 @@ switch ($type) {
 
 if ($sql && $sql->execute(array($uid, $id))) {
     $naive->execute(array($id));
-    success_encode($info = "naive");
+    success_encode(null, "naive");
 } else {
     other_encode(500, "Too simple!");
 }

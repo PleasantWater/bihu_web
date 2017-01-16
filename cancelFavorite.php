@@ -6,10 +6,16 @@ $token = $_POST["token"];
 $uid = checkToken($pdo, $token);
 $qid = (int)$_POST["qid"];
 
-$sql = $pdo->prepare("DELETE FROM favorite WHERE uid = ? AND qid = ?");
+$query = $pdo->prepare("SELECT * FROM favorite WHERE `uid` = ? AND `qid` = ?");
+$cancel = $pdo->prepare("DELETE FROM favorite WHERE `uid` = ? AND `qid` = ?");
 
-if ($sql->execute(array($uid, $qid))) {
-    success_encode();
-} else {
-    other_encode(500, "取消失败");
+if ($query->execute(array($uid . $qid))) {
+    if ($query->fetchAll(PDO::FETCH_NAMED)) {
+        if ($cancel->execute(array($uid, $qid))) {
+            success_encode();
+        }
+    } else {
+        other_encode(400, "你未收藏过此问题");
+    }
 }
+other_encode(500, "取消失败");
