@@ -1,6 +1,7 @@
 <?php
 function success_encode($data = null, $info = null)
 {
+    header("Content-Type: application/json");
     $result["status"] = 200;
     if ($info) {
         $result["info"] = $info;
@@ -16,6 +17,7 @@ function success_encode($data = null, $info = null)
 
 function other_encode($status, $info, $data = null)
 {
+    header("Content-Type: application/json");
     $result["status"] = $status;
     $result["info"] = $info;
     if ($data) {
