@@ -135,7 +135,15 @@
         "exciting": 2,
         "naive": 0,
         "authorName": "admin",
-        "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460"
+        "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460",
+        "images": [
+                  {
+                    "url": "https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_ca79a146.png"
+                  },
+                  {
+                    "url": "http://cdn-qn0.jianshu.io/assets/web/logo-58fd04f6f0de908401aa561cda6a0688.png"
+                  }
+                ]
       },
       {
         "id": 2,
@@ -148,8 +156,9 @@
         "exciting": 0,
         "naive": 0,
         "authorName": "admin",
-        "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460"
-      },
+        "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460" ,
+        "images": []
+         },
       {
         "id": 1,
         "title": "test",
@@ -161,7 +170,8 @@
         "exciting": 0,
         "naive": 0,
         "authorName": "admin",
-        "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460"
+        "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460",
+        "images": []
       }
     ],
     "curPage": 0
@@ -199,7 +209,8 @@ recent表示最近回复时间，没有回复时为null。
         "best": 1,
         "authorId": 2,
         "authorName": "test",
-        "authorAvatar": null
+        "authorAvatar": null,
+        "images": []
       }
     ],
     "curPage": 0

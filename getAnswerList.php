@@ -35,7 +35,7 @@ $data = null;
 foreach ($sql->fetchAll(PDO::FETCH_NAMED) as $row) {
     $data[] = $row;
 }
-foreach ($data as $e) {
+foreach ($data as &$e) {
     $sql = $pdo->prepare("SELECT `url` FROM image WHERE `aid` = ? AND `uid` = ?");
     $sql->execute(array($e["id"], $e["authorId"]));
     $e["images"] = $sql->fetchAll(PDO::FETCH_NAMED);

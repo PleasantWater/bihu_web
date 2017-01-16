@@ -32,7 +32,7 @@ $sql = $pdo->prepare("
 
 $sql->execute(array($page * $count, $count));
 $data = $sql->fetchAll(PDO::FETCH_NAMED);
-foreach ($data as $e) {
+foreach ($data as &$e) {
     $sql = $pdo->prepare("SELECT `url` FROM image WHERE `qid` = ? AND `uid` = ?");
     $sql->execute(array($e["id"], $e["authorId"]));
     $e["images"] = $sql->fetchAll(PDO::FETCH_NAMED);
