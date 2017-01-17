@@ -11,7 +11,7 @@ $qid = (int)$_POST["qid"];
 $query = $pdo->prepare("SELECT * FROM favorite WHERE `uid` = ? AND `qid` = ?");
 $sql = $pdo->prepare("INSERT INTO favorite (`uid`, `qid` ) VALUES ( ?, ?)");
 
-if ($query->execute(array($uid . $qid))) {
+if ($query->execute(array($uid, $qid))) {
     if ($query->fetchAll(PDO::FETCH_NAMED)) {
         other_encode(400, "你已收藏过此问题");
     } else {

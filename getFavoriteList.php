@@ -1,9 +1,8 @@
 <?php
 include("connect.php");
-include("jsonWrapper.php");
+include("token.php");
 
 $dataInfo = array("totalCount" => 0, "totalPage" => 0, "answers" => null);
-
 
 $token = $_POST["token"];
 $uid = checkToken($pdo, $token);
