@@ -11,7 +11,7 @@ $qid = (int)$_POST["qid"];
 $query = $pdo->prepare("SELECT * FROM question WHERE `id` = ? AND `uid` = ?");
 
 if ($query->execute(array($qid, $uid))) {
-    if ($query->fetchAll(PDO::FETCH_NAMED)) {
+    if ($query->fetch(PDO::FETCH_NAMED)) {
         $query = $pdo->prepare("UPDATE answer SET `best` = TRUE WHERE `qid` = ? AND `id` = ?");
         if ($query->execute(array($qid, $aid))) {
             success_encode();

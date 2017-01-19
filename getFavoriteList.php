@@ -2,7 +2,7 @@
 include("connect.php");
 include("token.php");
 
-$dataInfo = array("totalCount" => 0, "totalPage" => 0, "answers" => null);
+$dataInfo = array("totalCount" => 0, "totalPage" => 0, "questions" => null);
 
 $token = $_POST["token"];
 $uid = checkToken($pdo, $token);
@@ -19,6 +19,8 @@ $sql = $pdo->prepare("
       question.title,
       question.content,
       question.date,
+      question.exciting,
+      question.naive,
       question.recent,
       question.answerCount,
       question.uid    AS authorId,
@@ -32,14 +34,14 @@ $sql = $pdo->prepare("
     ");
 
 $sql->execute(array($uid, $page * $count, $count));
-$data = null;
-foreach ($sql->fetchAll(PDO::FETCH_NAMED) as $row) {
-    $data[] = $row;
+$data = $sql->fetchAll(PDO::FETCH_NAMED);
+foreach ($data as &$e) {
+    $sql = $pdo->prepare("SELECT `url` FROM image WHERE `qid` = ? AND `uid` = ?");
+    $sql->execute(array($e["id"], $e["authorId"]));
+    $e["images"] = $sql->fetchAll(PDO::FETCH_NAMED);
 }
-$sql = $pdo->prepare("SELECT COUNT(*) AS count FROM answer WHERE qid = ?");
-$sql->execute(array($qid));
-$totalCount = $sql->fetch(PDO::FETCH_NAMED);
-$dataInfo["answers"] = $data;
+$totalCount = $pdo->query("SELECT COUNT(*) AS count FROM question")->fetch(PDO::FETCH_NAMED);
+$dataInfo["questions"] = $data;
 $dataInfo["totalCount"] = (int)$totalCount['count'];
 $dataInfo["curPage"] = $page;
 $dataInfo["totalPage"] = (int)($totalCount['count'] / $count) + 1;

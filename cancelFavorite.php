@@ -9,7 +9,7 @@ $qid = (int)$_POST["qid"];
 $query = $pdo->prepare("SELECT * FROM favorite WHERE `uid` = ? AND `qid` = ?");
 $cancel = $pdo->prepare("DELETE FROM favorite WHERE `uid` = ? AND `qid` = ?");
 
-if ($query->execute(array($uid . $qid))) {
+if ($query->execute(array($uid, $qid))) {
     if ($query->fetchAll(PDO::FETCH_NAMED)) {
         if ($cancel->execute(array($uid, $qid))) {
             success_encode();
