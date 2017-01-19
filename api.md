@@ -111,6 +111,7 @@
 地址：https://api.caoyue.com.cn/bihu/getQuestionList.php
 参数
 
+>token
 >page:  
 >count:可空，每页条数，默认20条。
 
@@ -143,7 +144,10 @@
                   {
                     "url": "http://cdn-qn0.jianshu.io/assets/web/logo-58fd04f6f0de908401aa561cda6a0688.png"
                   }
-                ]
+                ],
+         "is_exciting": false,
+         "is_naive": false,
+         "is_favorite": false
       },
       {
         "id": 2,
@@ -157,7 +161,10 @@
         "naive": 0,
         "authorName": "admin",
         "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460" ,
-        "images": []
+        "images": [],
+        "is_exciting": false,
+        "is_naive": false,
+        "is_favorite": false
          },
       {
         "id": 1,
@@ -171,7 +178,10 @@
         "naive": 0,
         "authorName": "admin",
         "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460",
-        "images": []
+        "images": [],
+        "is_exciting": false,
+        "is_naive": false,
+        "is_favorite": false
       }
     ],
     "curPage": 0
@@ -186,6 +196,7 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/getAnswerList.php    
 参数：
 
+>token
 >page:  
 >qid:  
 >count:可空，每页条数，默认20条
@@ -210,7 +221,9 @@ recent表示最近回复时间，没有回复时为null。
         "authorId": 2,
         "authorName": "test",
         "authorAvatar": null,
-        "images": []
+        "images": [],
+        "is_exciting": false,
+        "is_naive": false
       }
     ],
     "curPage": 0

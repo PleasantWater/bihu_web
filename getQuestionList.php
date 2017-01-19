@@ -1,6 +1,6 @@
 <?php
 include("connect.php");
-include("jsonWrapper.php");
+include("token.php");
 
 $dataInfo = array("totalCount" => 0, "totalPage" => 0, "questions" => null);
 
@@ -53,7 +53,7 @@ foreach ($data as &$e) {
         $e["is_naive"] = false;
     }
     $sql = $pdo->prepare("SELECT * FROM favorite WHERE `qid` = ? AND `uid` = ?");
-    $sql->execute(array($e["id"], $e["authorId"]));
+    $sql->execute(array($e["id"], $uid));
     if ($sql->fetch(PDO::FETCH_NAMED)) {
         $e["is_favorite"] = true;
     } else {
