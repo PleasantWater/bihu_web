@@ -4,6 +4,7 @@ include("jsonWrapper.php");
 
 $dataInfo = array("totalCount" => 0, "totalPage" => 0, "questions" => null);
 
+$uid = checkToken($pdo, $_POST["token"]);
 $page = (int)$_POST["page"];
 $count = (int)$_POST["count"];
 if (!$count) {
@@ -36,6 +37,28 @@ foreach ($data as &$e) {
     $sql = $pdo->prepare("SELECT `url` FROM image WHERE `qid` = ? AND `uid` = ?");
     $sql->execute(array($e["id"], $e["authorId"]));
     $e["images"] = $sql->fetchAll(PDO::FETCH_NAMED);
+
+    $sql = $pdo->prepare("SELECT * FROM exciting_question WHERE `qid` = ? AND `uid` = ?");
+    $sql->execute(array($e["id"], $uid));
+    if ($sql->fetch(PDO::FETCH_NAMED)) {
+        $e["is_exciting"] = true;
+    } else {
+        $e["is_exciting"] = false;
+    }
+    $sql = $pdo->prepare("SELECT * FROM naive_question WHERE `qid` = ? AND `uid` = ?");
+    $sql->execute(array($e["id"], $uid));
+    if ($sql->fetch(PDO::FETCH_NAMED)) {
+        $e["is_naive"] = true;
+    } else {
+        $e["is_naive"] = false;
+    }
+    $sql = $pdo->prepare("SELECT * FROM favorite WHERE `qid` = ? AND `uid` = ?");
+    $sql->execute(array($e["id"], $e["authorId"]));
+    if ($sql->fetch(PDO::FETCH_NAMED)) {
+        $e["is_favorite"] = true;
+    } else {
+        $e["is_favorite"] = false;
+    }
 }
 $totalCount = $pdo->query("SELECT COUNT(*) AS count FROM question")->fetch(PDO::FETCH_NAMED);
 $dataInfo["questions"] = $data;

@@ -31,7 +31,7 @@ $sql = $pdo->prepare("
       RIGHT JOIN favorite ON favorite.qid = question.id
     WHERE favorite.uid = ? ORDER BY IFNULL(`recent`, `date`) DESC
     LIMIT ?, ?
-    ");
+");
 
 $sql->execute(array($uid, $page * $count, $count));
 $data = $sql->fetchAll(PDO::FETCH_NAMED);
@@ -39,6 +39,21 @@ foreach ($data as &$e) {
     $sql = $pdo->prepare("SELECT `url` FROM image WHERE `qid` = ? AND `uid` = ?");
     $sql->execute(array($e["id"], $e["authorId"]));
     $e["images"] = $sql->fetchAll(PDO::FETCH_NAMED);
+
+    $sql = $pdo->prepare("SELECT * FROM exciting_question WHERE `qid` = ? AND `uid` = ?");
+    $sql->execute(array($e["id"], $uid));
+    if ($sql->fetch(PDO::FETCH_NAMED)) {
+        $e["is_exciting"] = true;
+    } else {
+        $e["is_exciting"] = false;
+    }
+    $sql = $pdo->prepare("SELECT * FROM naive_question WHERE `qid` = ? AND `uid` = ?");
+    $sql->execute(array($e["id"], $uid));
+    if ($sql->fetch(PDO::FETCH_NAMED)) {
+        $e["is_naive"] = true;
+    } else {
+        $e["is_naive"] = false;
+    }
 }
 $totalCount = $pdo->query("SELECT COUNT(*) AS count FROM question")->fetch(PDO::FETCH_NAMED);
 $dataInfo["questions"] = $data;
