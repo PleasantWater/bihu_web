@@ -2,8 +2,7 @@
 include("connect.php");
 include("token.php");
 
-$token = $_POST["token"];
-$uid = checkToken($pdo, $token);
+$uid = checkToken($pdo, $_POST["token"]);
 
 $url = $_POST["url"];
 $type = (int)$_POST["type"];

@@ -21,10 +21,10 @@
 地址：https://api.caoyue.com.cn/bihu/register.php    
 参数：
 
->username:  
->password:
+- username
+- password
 
-返回:：
+返回:
 
 ```json
 {
@@ -45,8 +45,8 @@
 地址：https://api.caoyue.com.cn/bihu/login.php    
 参数
 
->username:  
->password:
+- username
+- password
 
 返回:：
 
@@ -70,8 +70,8 @@
 地址：https://api.caoyue.com.cn/bihu/modifyAvatar.php    
 参数
 
->token:  
->face:
+- token
+- avatar
 
 传用户头像地址。本API不负责图片文件储存，图片储存请右转阿里，七牛，然后把图片地址传上来。
 
@@ -89,8 +89,8 @@
 地址：https://api.caoyue.com.cn/bihu/changePassword.php    
 参数
 
->token:  
->password:
+- token
+- password
 
 传用户头像地址。本API不负责图片文件储存，图片储存请右转[阿里](https://help.aliyun.com/product/31815.html)，[七牛](http://developer.qiniu.com/article/index.html#kodo-api-handbook)，然后把图片地址传上来。
 
@@ -111,9 +111,9 @@
 地址：https://api.caoyue.com.cn/bihu/getQuestionList.php
 参数
 
->token
->page:  
->count:可空，每页条数，默认20条。
+- token
+- page
+- count:可空，每页条数，默认20条。
 
 返回:
 
@@ -196,10 +196,10 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/getAnswerList.php    
 参数：
 
->token
->page:  
->qid:  
->count:可空，每页条数，默认20条
+- token
+- page
+- qid
+- count:可空，每页条数，默认20条
 
 返回:：
 
@@ -236,9 +236,9 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/question.php    
 参数：
 
->title:  
->content:  
->token:
+- title
+- content
+- token
 
 返回:：
 
@@ -254,9 +254,9 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/answer.php    
 参数：
 
->qid:  
->content:  
->token
+- qid
+- content
+- token
 
 返回:：
 
@@ -272,10 +272,10 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/favorite.php    
 参数：
 
->qid:  
->token
+- qid  
+- token
 
-返回:：
+返回:
 
 ```json
 {
@@ -289,8 +289,8 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/cancelFavorite.php    
 参数：
 
->qid:  
->token
+- qid
+- token
 
 返回:：
 
@@ -306,9 +306,9 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/getFavoriteList.php    
 参数：
 
->token
->page:   
->count:可空，每页条数，默认20条
+- token
+- page
+- count:可空，每页条数，默认20条
 
 返回参考前面问题列表
 
@@ -317,9 +317,9 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/accept.php    
 参数：
 
->qid:  
->aid: answer id  
->token
+- qid
+- aid -> answer id
+- token
 
 返回:：
 
@@ -335,9 +335,9 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/exciting.php    
 参数：
 
->id:  
->type: ANSWER -> 2, QUESTION -> 1  
->token
+- id
+- type: ANSWER -> 2, QUESTION -> 1
+- token
 
 返回:：
 
@@ -353,9 +353,9 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/naive.php    
 参数：
 
->id:  
->type: ANSWER -> 2, QUESTION -> 1  
->token
+- id
+- type: ANSWER -> 2, QUESTION -> 1
+- token
 
 返回:：
 
@@ -371,9 +371,9 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/cancelExciting.php    
 参数：
 
->id:  
->type: ANSWER -> 2, QUESTION -> 1  
->token
+- id
+- type: ANSWER -> 2, QUESTION -> 1
+- token
 
 返回:：
 
@@ -389,11 +389,11 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/cancelNaive.php    
 参数：
 
->id:  
->type: ANSWER -> 2, QUESTION -> 1  
->token
+- id:  
+- type: ANSWER -> 2, QUESTION -> 1  
+- token
 
-返回:：
+返回:
 
 ```json
 {
@@ -407,11 +407,11 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/newImage.php    
 参数：
 
->id:  
->type: ANSWER -> 2, QUESTION -> 1  
->url
+- id
+- type: ANSWER -> 2, QUESTION -> 1
+- url
 
-返回:：
+返回:
 
 ```json
 {
@@ -425,10 +425,10 @@ recent表示最近回复时间，没有回复时为null。
 地址：https://api.caoyue.com.cn/bihu/getImage.php    
 参数：
 
->id:  
->type: ANSWER -> 2, QUESTION -> 1  
+- id
+- type: ANSWER -> 2, QUESTION -> 1
 
-返回：
+返回:
 
 ```json
 {
