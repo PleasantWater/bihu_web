@@ -1,4 +1,3 @@
-# 逼乎API文档
 ## 基本规则
 1. baseUrl: http://bihu.jay86.com/
 2. 所有接口POST，参数 x-www-form-urlencoded模式，返回:json。
