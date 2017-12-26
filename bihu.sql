@@ -25,6 +25,7 @@ CREATE TABLE `question` (
   `recent`      TIMESTAMP    NULL     DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `title`       VARCHAR(32)  NOT NULL,
   `content`     TEXT         NOT NULL,
+  `images`      TEXT                  DEFAULT NULL,
   `exciting`    INT UNSIGNED          DEFAULT 0,
   `naive`       INT UNSIGNED          DEFAULT 0,
   `date`        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -39,26 +40,13 @@ CREATE TABLE `answer` (
   `uid`      INT UNSIGNED NOT NULL,
   `qid`      INT UNSIGNED NOT NULL,
   `content`  TEXT         NOT NULL,
+  `images`   TEXT                  DEFAULT NULL,
   `exciting` INT UNSIGNED          DEFAULT 0,
   `naive`    INT UNSIGNED          DEFAULT 0,
   `best`     BOOLEAN               DEFAULT FALSE,
   `date`     TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`uid`) REFERENCES person (`id`),
-  FOREIGN KEY (`qid`) REFERENCES question (`id`)
-)
-  DEFAULT CHARSET = utf8mb4;
-
-DROP TABLE IF EXISTS `image`;
-CREATE TABLE `image` (
-  `id`  INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `uid` INT UNSIGNED,
-  `aid` INT UNSIGNED,
-  `qid` INT UNSIGNED,
-  `url` TEXT         NOT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`uid`) REFERENCES person (`id`),
-  FOREIGN KEY (`aid`) REFERENCES answer (`id`),
   FOREIGN KEY (`qid`) REFERENCES question (`id`)
 )
   DEFAULT CHARSET = utf8mb4;

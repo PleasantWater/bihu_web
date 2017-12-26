@@ -17,6 +17,7 @@ $sql = $pdo->prepare("
     SELECT
       answer.id,
       answer.content,
+      answer.images,
       answer.date,
       answer.best,
       answer.exciting,
@@ -34,9 +35,9 @@ $sql = $pdo->prepare("
 $sql->execute(array($qid, $page * $count, $count));
 $data = $sql->fetchAll(PDO::FETCH_NAMED);
 foreach ($data as &$e) {
-    $sql = $pdo->prepare("SELECT `url` FROM image WHERE `aid` = ? AND `uid` = ?");
+    //$sql = $pdo->prepare("SELECT `url` FROM image WHERE `aid` = ? AND `uid` = ?");
     $sql->execute(array($e["id"], $e["authorId"]));
-    $e["images"] = $sql->fetchAll(PDO::FETCH_NAMED);
+    //$e["images"] = $sql->fetchAll(PDO::FETCH_NAMED);
 
     $sql = $pdo->prepare("SELECT * FROM exciting_answer WHERE `aid` = ? AND `uid` = ?");
     $sql->execute(array($e["id"], $uid));
