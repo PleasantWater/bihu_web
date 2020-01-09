@@ -1,5 +1,5 @@
 ## 基本规则
-1. baseUrl: http://bihu.jay86.com/
+1. baseUrl: http(s)://bihu.blogofyb.com/
 2. 所有接口POST，参数 x-www-form-urlencoded模式，返回:json。
 3. 状态码：
    - 200 —— 成功
